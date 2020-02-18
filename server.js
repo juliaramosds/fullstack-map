@@ -4,12 +4,15 @@ const server = express()
 
 server.use(bodyParser.json())
 
+dados = []
+
 server.get('/', (req, res) => {
     res.send('<h1>home</h1>')
 })
 
 server.post('/contato', (req, res) => {
-    res.send('Das um banho!')
+    dados.push(req.boy)
+    res.json({ status: 'Das um banho!' })
 })
 
 server.get('/contato', (req, res) => {
